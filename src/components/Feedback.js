@@ -3,6 +3,7 @@ import Statistics from "./Statistics";
 import FeedbackOptions from "./FeedbackOptions";
 import Section from "./Section";
 import Notification from "./Notification";
+import PropTypes from "prop-types";
 
 export default class Feedback extends Component {
   state = {
@@ -64,4 +65,8 @@ Feedback.defaultProps = {
   bad: 0,
   total: 0,
   positiveFeedback: 0,
+};
+
+Feedback.propTypes = {
+  positiveFeedback: PropTypes.number.isRequired,
 };

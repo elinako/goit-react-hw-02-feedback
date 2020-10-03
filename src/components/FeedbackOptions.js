@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const FeedbackBtn = styled.button`
   background-color: transparent;
@@ -25,6 +26,10 @@ const FeedbackOptions = ({ onLeaveFeedback }) => {
       </FeedbackBtn>
     </>
   );
+};
+
+FeedbackOptions.propTypes = {
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;
