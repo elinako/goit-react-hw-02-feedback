@@ -7,8 +7,12 @@ const SectionTitle = styled.p`
   font-weight: 600;
 `;
 
-const Section = ({ title }) => {
-  return <SectionTitle>{title}</SectionTitle>;
+const Section = ({ title, children }) => {
+  return (
+    <SectionTitle>
+      <h2>{title}</h2> {children}
+    </SectionTitle>
+  );
 };
 
 Section.propTypes = {

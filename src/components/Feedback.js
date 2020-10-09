@@ -3,7 +3,6 @@ import Statistics from "./Statistics";
 import FeedbackOptions from "./FeedbackOptions";
 import Section from "./Section";
 import Notification from "./Notification";
-import PropTypes from "prop-types";
 
 export default class Feedback extends Component {
   state = {
@@ -40,33 +39,27 @@ export default class Feedback extends Component {
 
     return (
       <>
-        <Section title={`Please leave feedback`} />
-        <FeedbackOptions onLeaveFeedback={this.handleChange} />
-        <Section title={`Statistics`} />
-        {statisticsSumm >= 1 ? (
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={total}
-            positivePercentage={positiveFeedback}
+        <Section title={`Please leave feedback`}>
+          <FeedbackOptions
+            onLeaveFeedback={this.handleChange}
+            options={Object.keys(this.state)}
           />
-        ) : (
-          <Notification message="No feedback given" />
-        )}
+        </Section>
+
+        <Section title={`Statistics`}>
+          {statisticsSumm >= 1 ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positiveFeedback}
+            />
+          ) : (
+            <Notification message="No feedback given" />
+          )}
+        </Section>
       </>
     );
   }
 }
-
-Feedback.defaultProps = {
-  good: 0,
-  neutral: 0,
-  bad: 0,
-  total: 0,
-  positiveFeedback: 0,
-};
-
-Feedback.propTypes = {
-  positiveFeedback: PropTypes.number.isRequired,
-};

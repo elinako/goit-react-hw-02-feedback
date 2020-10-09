@@ -12,18 +12,14 @@ const FeedbackBtn = styled.button`
   }
 `;
 
-const FeedbackOptions = ({ onLeaveFeedback }) => {
+const FeedbackOptions = ({ onLeaveFeedback, options }) => {
   return (
     <>
-      <FeedbackBtn name="good" onClick={onLeaveFeedback}>
-        Good
-      </FeedbackBtn>
-      <FeedbackBtn name="neutral" onClick={onLeaveFeedback}>
-        Neutral
-      </FeedbackBtn>
-      <FeedbackBtn name="bad" onClick={onLeaveFeedback}>
-        Bad
-      </FeedbackBtn>
+      {options.map((option) => (
+        <FeedbackBtn name={option} onClick={onLeaveFeedback}>
+          {option}
+        </FeedbackBtn>
+      ))}
     </>
   );
 };
