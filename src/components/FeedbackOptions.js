@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from 'uuid';
+uuidv4();
 
 const FeedbackBtn = styled.button`
   background-color: transparent;
@@ -16,7 +18,7 @@ const FeedbackOptions = ({ onLeaveFeedback, options }) => {
   return (
     <>
       {options.map((option) => (
-        <FeedbackBtn name={option} onClick={onLeaveFeedback}>
+        <FeedbackBtn key={uuidv4()} name={option} onClick={onLeaveFeedback}>
           {option}
         </FeedbackBtn>
       ))}
